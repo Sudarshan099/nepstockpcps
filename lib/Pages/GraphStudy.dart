@@ -11,7 +11,20 @@ class GraphStudyPage extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
       ),
       body: Center(
-        child: Text('Graph Study Page Content'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/graphstudy.png',
+              height: 200,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Graph Study ',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }

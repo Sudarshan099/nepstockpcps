@@ -1,3 +1,109 @@
+import 'dart:math';
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'NepStock',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        // ... (unchanged)
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: 20.0),
+          Container(
+            width: 1000,
+            padding: EdgeInsets.all(15.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.grey,
+            ),
+            child: Text(
+              'Index',
+              style: TextStyle(
+                fontSize: 24.0,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          // 3x7 Table with random data
+          Container(
+            padding: EdgeInsets.all(15.0),
+            child: Table(
+              border: TableBorder.all(color: Colors.black),
+              children: List.generate(3, (indexRow) {
+                return TableRow(
+                  children: List.generate(7, (indexColumn) {
+                    // Generate random data (you can replace this with actual data)
+                    String randomData = Random().nextInt(100).toString();
+                    return TableCell(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          randomData,
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      ),
+                    );
+                  }),
+                );
+              }),
+            ),
+          ),
+          SizedBox(height: 20.0),
+          Container(
+            padding: EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Top Gainer',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  'Top Loser',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+// ... (unchanged)
+}
+
+
 /*
 import 'package:firebase_auth/firebase_auth.dart';
 

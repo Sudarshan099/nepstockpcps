@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-//import 'Dashboard.dart';
-//import 'Pages/Contact.dart';
 import 'Pages/Login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';

@@ -11,7 +11,7 @@ class WatchListPage extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
       ),
       body: Center(
-        child: Text('Watch List Page Content'),
+        child: Text('Nothing to show'),
       ),
     );
   }
