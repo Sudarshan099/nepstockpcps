@@ -28,41 +28,66 @@ class PredictedGraphPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 30.0, left: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  '  Nabil',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                SizedBox(width: 20.0),
-                Text(
-                  'H:1000',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.search,
+                      color: Colors.black,
+                      size: 18,
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Search Here...",
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 20.0),
-                Text(
-                  'L:9000',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 20.0),
-                Text(
-                  'R:8000',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(height: 20.0),
-            Center(
-              child: Container(
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                children: [
+                  Text(
+                    '  Nabil',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 20.0),
+                  Text(
+                    'H:1000',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 20.0),
+                  Text(
+                    'L:9000',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 20.0),
+                  Text(
+                    'R:8000',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Container(
                 height: 200,
                 width: 300,
-                margin: EdgeInsets.all(16.0),
-                padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10.0),
@@ -92,93 +117,64 @@ class PredictedGraphPage extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            Container(
-              height: 250,
-              width: 350,
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: const Color(0xffb2d9f1),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: ListView(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Sector',
-                              ),
-                              Text(
-                                'Market Price',
-                              ),
-                              Text(
-                                'Percentage Change',
-                              ),
-                              Text(
-                                'One Year High-Low',
-                              ),
-                              Text(
-                                '100 Day Average',
-                              ),
-                              Text(
-                                'One Year Yield',
-                              ),
-                              Text(
-                                'Book Value',
-                              ),
-                              Text(
-                                '30 Days Average ',
-                              ),
-                            ],
+              SizedBox(height: 20.0),
+              Container(
+                height: 250,
+                width: 350,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: const Color(0xffb2d9f1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Sector'),
+                                Text('Market Price'),
+                                Text('Percentage Change'),
+                                Text('One Year High-Low'),
+                                Text('100 Day Average'),
+                                Text('One Year Yield'),
+                                Text('Book Value'),
+                                Text('30 Days Average'),
+                              ],
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                ' Banking sector',
-                              ),
-                              Text(
-                                ' RS: 500',
-                              ),
-                              Text(
-                                ' +2.3%',
-                              ),
-                              Text(
-                                ' RS:1699-499',
-                              ),
-                              Text(
-                                ' 699',
-                              ),
-                              Text(
-                                ' +5.79%',
-                              ),
-                              Text(
-                                ' 399',
-                              ),
-                              Text(
-                                ' 27905729',
-                              ),
-                            ],
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(' Banking sector'),
+                                Text(' RS: 500'),
+                                Text(' +2.3%'),
+                                Text(' RS:1699-499'),
+                                Text(' 699'),
+                                Text(' +5.79%'),
+                                Text(' 399'),
+                                Text(' 27905729'),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-    ]
-    )
-      )
+            ],
+          ),
+        ),
+      ),
+
     );
   }
 }

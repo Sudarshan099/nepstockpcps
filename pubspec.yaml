@@ -36,6 +36,7 @@ dependencies:
   http:
   syncfusion_flutter_charts: ^20.1.53
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
