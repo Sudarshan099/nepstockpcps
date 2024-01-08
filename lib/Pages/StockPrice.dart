@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nepstockfinal/services/stock_controller.dart';
 
 class StockPricePage extends StatelessWidget {
+  StockController stockController = StockController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,189 +12,36 @@ class StockPricePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20.0),
-          Container(
-            padding: EdgeInsets.all(1.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Stock Price',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
+      body: FutureBuilder(
+        future: stockController.fetchStock(),
+        builder: (context, snapshot) {
+          return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: DataTable(
+                columns: [
+                  DataColumn(label: Text('ID')),
+                  DataColumn(label: Text('Company ID')),
+                  DataColumn(label: Text('Opening Price')),
+                  DataColumn(label: Text('Closing Price')),
+                  DataColumn(label: Text('Date')),
+                ],
+                rows: stockController.stockList.map((stock) {
+                  return DataRow(
+                    cells: [
+                      DataCell(Text(stock.id.toString())),
+                      DataCell(Text(stock.companyName.toString())),
+                      DataCell(Text(stock.openingPrice.toString())),
+                      DataCell(Text(stock.closingPrice.toString())),
+                      DataCell(Text(stock.date.toString())),
+                    ],
+                  );
+                }).toList(),
+              ),
             ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.grey,
-            ),
-          ),
-          //SizedBox(height: 1.0),
-          Container(
-            padding: EdgeInsets.all(10.0),
-            child: Table(
-              border: TableBorder.all(),
-              children: [
-                TableRow(
-                  children: [
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('Symbol')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('LTP')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('High')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('Low')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('Open')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        child: Center(child: Text('Close')),
-                      ),
-                    ),
-                    TableCell(
-                      child: Container(
-                        padding: EdgeInsets.all(4.0),
-                        child: Center(child: Text('%Change')),
-                      ),
-                    ),
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    TableCell(
-                      child: Center(child: Text('PRVU',)
-                      ),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('158.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('158.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('158.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('158.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('158.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('0.00',style: TextStyle(backgroundColor: Colors.yellowAccent,))),
-                    ),
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    TableCell(
-                      child: Center(child: Text('PCBL')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('184.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('184.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('184.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('184.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('184.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('0.00',style: TextStyle(backgroundColor: Colors.yellowAccent,))),
-                    ),
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    TableCell(
-                      child: Center(child: Text('GBIME')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('208.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('208.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('208.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('208.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('208.00')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('0.00',style: TextStyle(backgroundColor: Colors.yellowAccent,))),
-                    ),
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    TableCell(
-                      child: Center(child: Text('NIMB')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('176.50')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('176.50')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('176.50')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('176.50')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('176.50')),
-                    ),
-                    TableCell(
-                      child: Center(child: Text('0.00',style: TextStyle(backgroundColor: Colors.yellowAccent,))),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-
-            ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

@@ -35,7 +35,7 @@ dependencies:
   cloud_firestore:
   http:
   syncfusion_flutter_charts: ^20.1.53
-
+  get: any
 
 dev_dependencies:
   flutter_test:

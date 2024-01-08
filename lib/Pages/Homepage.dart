@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:nepstockfinal/Pages/Calculator.dart';
 import 'package:nepstockfinal/Pages/Contact.dart';
@@ -10,11 +8,11 @@ import 'package:nepstockfinal/Pages/Price.dart';
 import 'package:nepstockfinal/Pages/StockGraph.dart';
 import 'package:nepstockfinal/Pages/WatchList.dart';
 
-
 import 'Login.dart';
 import 'Profile.dart';
 import 'StockAlert.dart';
 import 'StockPrice.dart';
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -219,21 +217,14 @@ class HomePage extends StatelessWidget {
 
               ),
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 10.0),
             Container(
               padding: EdgeInsets.all(10.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Top Gainer',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    'Top Loser',
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.black,
@@ -310,7 +301,7 @@ class HomePage extends StatelessWidget {
                         child: Center(child: Text('7.70',style: TextStyle(color: Colors.green,))),
                       ),
                       TableCell(
-                        child: Center(child: Text('-10.00',style: TextStyle(color: Colors.red,))),
+                        child: Center(child: Text('10.00',style: TextStyle(color: Colors.green,))),
                       ),
                       TableCell(
                         child: Center(child: Text('+1%',style: TextStyle(color: Colors.green,))),
@@ -378,6 +369,167 @@ class HomePage extends StatelessWidget {
                       ),
                       TableCell(
                         child: Center(child: Text('+3.25%',style: TextStyle(color: Colors.green,))),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Top Looser',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.grey,
+              ),
+            ),
+            //SizedBox(height: 1.0),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Table(
+                border: TableBorder.symmetric(),
+                children: [
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          color: Colors.blue,
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(child: Text('Symbol')),
+                        ),
+                      ),
+                      TableCell(
+                        child: Container(
+                          color: Colors.blue,
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(child: Text('LTP')),
+                        ),
+                      ),
+                      TableCell(
+                        child: Container(
+                          color: Colors.blue,
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(child: Text('Change')),
+                        ),
+                      ),
+                      TableCell(
+                        child: Container(
+                          color: Colors.blue,
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(child: Text('Change%')),
+                        ),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('MMF1',)
+                        ),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('7.3',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-0.5',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-6.41%',style: TextStyle(color: Colors.red,))),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('SPL')),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('697',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-44',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-5.94%',style: TextStyle(color: Colors.red,))),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('SAEF')),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('9.52',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-0.48',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-4.8%',style: TextStyle(color: Colors.red,))),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('NMFBS')),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('1062.1',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-48.9',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-4.4%',style: TextStyle(color: Colors.red,))),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('NYADI')),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('281.1',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-12.9',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-4.39%',style: TextStyle(color: Colors.red,))),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Center(child: Text('JSLBB')),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('848',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-38.4',style: TextStyle(color: Colors.red,))),
+                      ),
+                      TableCell(
+                        child: Center(child: Text('-4.33%',style: TextStyle(color: Colors.red,))),
                       ),
                     ],
                   ),

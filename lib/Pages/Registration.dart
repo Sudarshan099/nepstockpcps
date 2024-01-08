@@ -140,7 +140,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 TextField(
                   controller: _dobController,
                   decoration: InputDecoration(
-                    labelText: 'Date of Birth',
+                    labelText: 'Date of Birth(yyyy-mm-dd)',
                     prefixIcon: Icon(Icons.calendar_today),
                   ),
 
